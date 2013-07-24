@@ -18,8 +18,14 @@ Bowinst is a command-line application to install Bower component references in y
 
 ### Usage
 
-    bowinst install <component>
-    bowinst uninstall <component>
+```bash
+bower install <component>    #install the bower component
+bowinst install <component>  #now add the script/link tags
+```
+```bash
+bowinst uninstall <component>  #remove the script/link tags
+bower uninstall <component>    #now remove the bower component
+```
 
 In order to keep `bowinst` simple only those two commands are provided.  Also, both `install` and `uninstall` expect the associated Bower component to be installed in your Bower components directory.  Thus, you should execute `bowinst uninstall <component>` prior to `bower uninstall <component>`.  
 
