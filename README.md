@@ -116,4 +116,4 @@ If you write a broadly applicable extension, submit a pull request!
 
 ### Release History
 
-* ??/??/2013 - Initial release.
+* 7/23/2013 - Initial release.
