@@ -6,7 +6,7 @@ Bowinst is a command-line application to install Bower component references in y
 
 ### Features
 
-* Add javascript `<script>` tags or css `<link>` tags from your Bower components into your source files.
+* Add Javascript `<script>` tags or css `<link>` tags from your Bower components into your source files.
 * Add Angular module dependencies into your javascript file where you declare `angular.module('name',[...])`.
 * Easily configurable via a local `.bowinst.js` file.
 * Easily extensible.  Easily add logic for new types of file extensions (ex `sass`, `less`, `coffee`, etc) or use the simple extension system to add more complex logic.
@@ -28,6 +28,20 @@ bower uninstall <component>    #now remove the bower component
 ```
 
 In order to keep `bowinst` simple only those two commands are provided.  Also, both `install` and `uninstall` expect the associated Bower component to be installed in your Bower components directory.  Thus, you should execute `bowinst uninstall <component>` prior to `bower uninstall <component>`.  
+
+Bowinst uses comment markers in your HTML files to know where to put your `<script>` and `<link>` tags.  You must put the following markers in your HTML file:
+
+For css `<link>` elements:
+```html
+<!-- bower-css:start -->
+<!-- bower-css:end -->
+```
+
+For Javascript `<script>` elements:
+```html
+<!-- bower-js:start -->
+<!-- bower-js:end -->
+```
 
 ### Angular Component Support
 
