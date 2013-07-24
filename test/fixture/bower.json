@@ -1,0 +1,8 @@
+{
+  "name": "test",
+  "version": "0.0.0",
+  "dependencies": {
+    "angular-soft-forms": "cgross/angular-soft-forms",
+    "jquery": "~2.0.0"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "name": "bowinst",
+  "version": "1.0.0",
+  "description": "Automatically install Bower component references into your HTML or Javascript files.",
+  "keywords": [
+    "bower",
+    "angular",
+    "post_install"
+  ],
+  "homepage": "https://github.com/cgross/bowinst",
+  "bugs": "https://github.com/cgross/bowinst/issues",
+  "author": {
+    "name": "Chris Gross",
+    "email": "schtoo@schtoo.com",
+    "url": "https://github.com/cgross"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/cgross/bowinst.git"
+  },
+  "bin": {
+    "bowinst": "bin/bowinst"
+  },
+  "preferGlobal": true,
+  "scripts": {
+    "test": "grunt test"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "dependencies": {
+    "commander": "~1.3.0",
+    "underscore": "~1.5.1",
+    "bower": "~0.10.0",
+    "underscore.string": "~2.2.0rc",
+    "colors": "~0.6.0-1",
+    "esprima": "~1.0.3"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-contrib-jshint": "~0.6.0",
+    "grunt-contrib-nodeunit": "~0.2.0",
+    "execSync": "~1.0.1-pre"
+  }
+}

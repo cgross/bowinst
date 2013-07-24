@@ -1,0 +1,31 @@
+{
+  "name": "angular-soft-forms",
+  "version": "1.0.0",
+  "main": [
+    "angular-soft-forms.js",
+    "angular-soft-forms.css"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "bower_components",
+    "test",
+    "tests",
+    "temp",
+    "demo",
+    "lib",
+    "Gruntfile.js",
+    "package.json",
+    "README.md"
+  ],
+  "dependencies": {
+    "jquery": "~1.8.0",
+    "angular-unstable": "johannestroeger/bower-angular-unstable#~1.1.5",
+    "bootstrap": "~2.3.2"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.0.7"
+  },
+  "angularModule": "cgross.soft-forms"
+}

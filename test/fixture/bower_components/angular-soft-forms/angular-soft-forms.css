@@ -1,0 +1,40 @@
+input.cg-soft {
+    border:1px solid transparent;
+    -webkit-box-shadow:none;
+       -mox-box-shadow:none;
+            box-shadow:none;
+            font-weight: bold;
+}
+
+input.cg-soft:hover {
+	border: 1px solid rgba(204,204,204,0.4);
+ 	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+	        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);	
+}
+
+input.cg-soft:focus {
+	border-color: rgba(82, 168, 236, 0.8);
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	   -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+	        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+form.cg-soft .control-label {
+	color:#999;
+}
+form.cg-soft .form-horizontal .control-group {
+	margin-bottom: 3px;
+}
+
+form.cg-soft legend + .control-group {
+	margin-top: 0px;
+}
+
+form.cg-soft .control-group {
+	margin-bottom: 3px;
+}
+
+form.cg-soft .help-block {
+	color:#999;
+}
