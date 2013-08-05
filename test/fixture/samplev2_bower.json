@@ -1,0 +1,12 @@
+{
+  "name": "sample",
+  "main": [
+    "samplev2.js",
+    "sample.js",
+    "samplev2.css"
+  ],
+  "dependencies": {
+    "jquery": "~1.8.0"
+  },
+  "angularModule": "sample.version2.ng-module"
+}

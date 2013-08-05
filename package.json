@@ -48,6 +48,8 @@
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "~0.6.0",
     "grunt-contrib-nodeunit": "~0.2.0",
-    "execSync": "~1.0.1-pre"
+    "execSync": "~1.0.1-pre",
+    "grunt-simple-mocha": "~0.4.0",
+    "expect.js": "~0.2.0"
   }
 }

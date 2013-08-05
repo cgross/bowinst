@@ -6,24 +6,27 @@ module.exports = function(grunt) {
       all: [
       //'Gruntfile.js',
       'bin/bowinst',
-      'lib/**/*.js',
-      '<%= nodeunit.tests %>',
+      'lib/**/*.js'
       ],
       options: {
         jshintrc: '.jshintrc',
       },
     },
-    nodeunit: {
-      tests: ['test/test.js'],
-    },
-
+    simplemocha: {
+        options: {
+            reporter: 'spec'
+        },        
+        all: { 
+            src: ['test/test.js']
+        }
+    }
   });
 
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-clean');
-  grunt.loadNpmTasks('grunt-contrib-nodeunit');
+  grunt.loadNpmTasks('grunt-simple-mocha');
 
-  grunt.registerTask('test', ['nodeunit']);
+  grunt.registerTask('test', ['simplemocha']);
 
   grunt.registerTask('default', ['jshint', 'test']);
 

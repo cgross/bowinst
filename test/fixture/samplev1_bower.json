@@ -1,0 +1,11 @@
+{
+  "name": "sample",
+  "main": [
+    "sample.js",
+    "sample.css"
+  ],
+  "dependencies": {
+    "jquery": "~1.8.0"
+  },
+  "angularModule": "sample.ng-module"
+}
