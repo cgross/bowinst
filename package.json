@@ -39,7 +39,9 @@
     "bower": "~0.10.0",
     "underscore.string": "~2.2.0rc",
     "colors": "~0.6.0-1",
-    "esprima": "~1.0.3"
+    "esprima": "~1.0.3",
+    "mkdirp": "~0.3.5",
+    "rimraf": "~2.2.2"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

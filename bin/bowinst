@@ -9,7 +9,7 @@ var _ = require('underscore');
 program.version(pkg.version);
 program.usage('[command]');
 
-var commands = ['install','uninstall'];
+var commands = ['install','uninstall','preinstall'];
 
 _(commands).each(function(name){
     var cmd = require('../lib/cmd/' + name);
@@ -24,3 +24,4 @@ program.parse(process.argv);
 if (!program.args.length) {
 	program.help();
 }
+
