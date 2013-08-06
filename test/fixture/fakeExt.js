@@ -8,9 +8,9 @@ module.exports = {
 
     install: function(bowerjson,options){
 
-        var contents = fs.readFileSync(options.file,{encoding:'utf8'});
+        var contents = fs.readFileSync(options.file,'utf8');
         contents += '\n<!-- Added by Fake Extension -->';
-        fs.writeFileSync(options.file,contents,{encoding:'utf8'});
+        fs.writeFileSync(options.file,contents,'utf8');
 
     },
 
