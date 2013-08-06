@@ -36,7 +36,7 @@
   "dependencies": {
     "commander": "~1.3.0",
     "underscore": "~1.5.1",
-    "bower": "~0.10.0",
+    "bower": "~1.1.0",
     "underscore.string": "~2.2.0rc",
     "colors": "~0.6.0-1",
     "esprima": "~1.0.3",
