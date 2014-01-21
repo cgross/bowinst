@@ -27,7 +27,7 @@ bowinst uninstall <component>  #remove the script/link tags
 bower uninstall <component>    #now remove the bower component
 ```
 
-In order to keep `bowinst` simple only those two commands are provided.  Also, both `install` and `uninstall` expect the associated Bower component to be installed in your Bower components directory.  Thus, you should execute `bowinst uninstall <component>` prior to `bower uninstall <component>`.  
+In order to keep `bowinst` simple only those two commands are provided.  Also, both `install` and `uninstall` expect the associated Bower component to be installed in your Bower components directory.  Thus, you should execute `bowinst uninstall <component>` prior to `bower uninstall <component>`.
 
 Bowinst uses comment markers in your HTML files to know where to put your `<script>` and `<link>` tags.  You must put the following markers in your HTML file:
 
@@ -59,7 +59,7 @@ angular.module('myApp',['reusableAngularComponent']);
 
 ### Configuration
 
-By default, Bowinst installs javascript and css references into `index.html` and in the case of Angular components looks in `js/setup.js` for your `angular.module(...)` call.  These file locations, as well as a few other options can be overriden by creating a local file named `.bowinst.js`.   Please refer to the [default .bowinst.js](https://github.com/cgross/bowinst/blob/master/lib/.bowinst.js) to see the format of the file.  Your local `.bowinst.js` will be merged with the [default .bowinst.js](https://github.com/cgross/bowinst/blob/master/lib/.bowinst.js) so you only need to specify properties that you wish to override.  
+By default, Bowinst installs javascript and css references into `index.html` and in the case of Angular components looks in `js/setup.js` for your `angular.module(...)` call.  These file locations, as well as a few other options can be overriden by creating a local file named `.bowinst.js`.   Please refer to the [default .bowinst.js](https://github.com/cgross/bowinst/blob/master/lib/.bowinst.js) to see the format of the file.  Your local `.bowinst.js` will be merged with the [default .bowinst.js](https://github.com/cgross/bowinst/blob/master/lib/.bowinst.js) so you only need to specify properties that you wish to override.
 
 For example, to override just the files that Bowinst installs to, your `.bowinst.js` should look like this:
 
@@ -107,7 +107,7 @@ module.exports = function(){
 };
 ```
 
-You may also provide a full-blown plugin/extension by adding a new entry to the `extensions` map.  Extensions are Node/CommonJS modules with `install` and `uninstall` methods.  Both of these methods will be passed two arguments.  First is an object containing the `bower.json` data of the component being installed or uninstalled.  Second is the `options` properties defined in the extension's options.  
+You may also provide a full-blown plugin/extension by adding a new entry to the `extensions` map.  Extensions are Node/CommonJS modules with `install` and `uninstall` methods.  Both of these methods will be passed two arguments.  First is an object containing the `bower.json` data of the component being installed or uninstalled.  Second is the `options` properties defined in the extension's options.
 
 A simple extension configuration might look like:
 

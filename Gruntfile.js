@@ -16,14 +16,15 @@ module.exports = function(grunt) {
         options: {
             reporter: 'spec',
             timeout:4000
-        },        
-        all: { 
+        },
+        all: {
             src: ['test/test.js']
         }
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-jshint');
+  //grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadTasks('../grunt-contrib-jshint/tasks');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-simple-mocha');
 

@@ -1,6 +1,6 @@
 {
   "name": "bowinst",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automatically install Bower component references into your HTML or Javascript files.",
   "keywords": [
     "bower",
@@ -38,10 +38,11 @@
     "underscore": "~1.5.1",
     "bower": "~1.1.0",
     "underscore.string": "~2.2.0rc",
-    "colors": "~0.6.0-1",
     "esprima": "~1.0.3",
     "mkdirp": "~0.3.5",
-    "rimraf": "~2.2.2"
+    "rimraf": "~2.2.2",
+    "chalk": "~0.4.0",
+    "colors": "~0.6.2"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
