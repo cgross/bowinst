@@ -1,20 +1,19 @@
-/*
-  DEFAULTS
-*/
-module.exports = function(){
-    return {
-        fileTypes: {
-            js: {
-                file: 'custom.html'
+
+module.exports = {
+    extensions: [
+        {
+            id:'bowinst.js',
+            options: {
+                file:'custom.html'
             }
         },
-        extensions: {
-            fake: {
-                module: require('./fakeExt.js'),
-                options: {
-                    file: 'custom.html'               
-                }
+        {
+            id:'fake',
+            files:'*.*',
+            module:require('./fakeExt.js'),
+            options:{
+                file:'custom.html'
             }
         }
-    };
+    ]
 };

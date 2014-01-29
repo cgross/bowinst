@@ -16,36 +16,41 @@ Bowinst is a command-line application to install Bower component references in y
 
     npm install -g bowinst
 
-### Usage
+### Getting Started
+
+To configure `bowinst`, you'll need to modify your Bower config in `.bowerrc` and let Bower know to trigger the `bowinst` command after each Bower install or uninstall.  Additionally, you may need to create a Bowinst's `.bowinst.js` config file if the file name of your primary HTML is not 'index.html'.  If you have an Angular project, you might additionally need to tell Bowinst where you do your Angular module initialization.  Thankfully, `bowinst` includes an `init` command to do this all for you.
+
+Here's an example of running `bowinst init`:
 
 ```bash
-bower install <component>    #install the bower component
-bowinst install <component>  #now add the script/link tags
-```
-```bash
-bowinst uninstall <component>  #remove the script/link tags
-bower uninstall <component>    #now remove the bower component
-```
-
-In order to keep `bowinst` simple only those two commands are provided.  Also, both `install` and `uninstall` expect the associated Bower component to be installed in your Bower components directory.  Thus, you should execute `bowinst uninstall <component>` prior to `bower uninstall <component>`.
-
-Bowinst uses comment markers in your HTML files to know where to put your `<script>` and `<link>` tags.  You must put the following markers in your HTML file:
-
-For css `<link>` elements:
-```html
-<!-- bower-css:start -->
-<!-- bower-css:end -->
+$ bowinst init
+Enter the HTML file where <script> and <link> tags should be added (index.html) app/index.html
+If this is an Angular project, enter the JS file where the main Angular module is created. If not,
+just hit Enter. (js/setup.js) app/scripts/app.js
+>> .bowerrc created
+>> .bowinst.js created
+Good to go!
 ```
 
-For Javascript `<script>` elements:
+Next you'll need to add the comment markers to your HTML file so Bowinst knows where to put your `<script>` and `<link>` tags.  For `<script>` tags, use these surrounding comment markers:
+
 ```html
 <!-- bower-js:start -->
 <!-- bower-js:end -->
 ```
 
+For `<link>` tags, use these:
+
+```html
+<!-- bower-css:start -->
+<!-- bower-css:end -->
+```
+
+That's it.  Bowinst will now automatically install and uninstall `<script>`, `<link>`, and Angular module references into your project automatically.
+
 ### Angular Component Support
 
-When installing a reusable Angular component, if the `bower.json` includes an `angularModule` property whose value is the name of its declared Angular module then Bowinst will add that for you.  In other words, it will change:
+When installing a reusable Angular component, if it's `bower.json` includes an `angularModule` property whose value is the name of its declared Angular module then Bowinst will add that for you.  For example, if you were installing an angular component named `reusableAngularComponent`, it would change this:
 
 ```js
 angular.module('myApp',[]);
@@ -57,83 +62,14 @@ into:
 angular.module('myApp',['reusableAngularComponent']);
 ```
 
-### Configuration
+Please help spread the word to Angular component authors.  Let them know to add the `angularModule` property to their `bower.json` files.
 
-By default, Bowinst installs javascript and css references into `index.html` and in the case of Angular components looks in `js/setup.js` for your `angular.module(...)` call.  These file locations, as well as a few other options can be overriden by creating a local file named `.bowinst.js`.   Please refer to the [default .bowinst.js](https://github.com/cgross/bowinst/blob/master/lib/.bowinst.js) to see the format of the file.  Your local `.bowinst.js` will be merged with the [default .bowinst.js](https://github.com/cgross/bowinst/blob/master/lib/.bowinst.js) so you only need to specify properties that you wish to override.
+### Advanced Configuration and Creating Extensions
 
-For example, to override just the files that Bowinst installs to, your `.bowinst.js` should look like this:
+There are many more configuration options as well as the ability for anyone to create their own extensions.  Please see the [Advanced documentation](ADVANCED.md) for more details.
 
-```js
-module.exports = function(){
-    return {
-        fileTypes: {
-            css: {
-                file: 'myCustomIndex.html' //install here instead of index.html
-           },
-            js: {
-                file: 'myCustomIndex.html' //install here instead of index.html
-            }
-        },
-        extensions: {
-            angular: {
-                options: {
-                    file: 'scripts/init.js' //install here instead of js/setup.js
-                }
-            }
-        }
-    };
-};
-```
-
-Any property including the comment markers or the tag templates may be overriden.
-
-### Extensions
-
-Bowinst's standard behavior for adding `<script>` tags, `<link>` tags, and Angular module dependencies is configured by the default `.bowinst.js` file.  If you'd like to add processing for new file types, simply add a new file type extension object.  For example, you might add a section to process LESS files like:
-
-```js
-module.exports = function(){
-    return {
-        fileTypes: {
-            less: {
-                file: 'app.less',
-                template: '@import "<%= file %>";',
-                startMarker: '/* bower-less:start */',
-                endMarker: '/* bower-less:end */',
-                fileMatcher: '<%= file %>'
-           }
-        }
-    };
-};
-```
-
-You may also provide a full-blown plugin/extension by adding a new entry to the `extensions` map.  Extensions are Node/CommonJS modules with `install` and `uninstall` methods.  Both of these methods will be passed two arguments.  First is an object containing the `bower.json` data of the component being installed or uninstalled.  Second is the `options` properties defined in the extension's options.
-
-A simple extension configuration might look like:
-
-```js
-module.exports = function(){
-    return {
-        fileTypes: {
-            ...
-        },
-        extensions: {
-            myExtension: {
-                module: require('./myExtension.js'),
-                options: {
-                    option1: 123,
-                    option2: 'abc'
-                }
-            }
-        }
-    };
-};
-```
-
-The Angular support in Bowinst is implemented as an extension.  You can review the [angular.js](https://github.com/cgross/bowinst/blob/master/lib/ext/angular.js) module for that extension as an example.
-
-If you write a broadly applicable extension, submit a pull request!
 
 ### Release History
 
-* 7/23/2013 - Initial release.
+* 1/29/2014 v2.0 - Simplification refactoring.
+* 7/23/2013 v1.0 - Initial release.

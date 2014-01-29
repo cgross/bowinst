@@ -1,15 +1,17 @@
-/*
-  DEFAULTS
-*/
-module.exports = function(){
-    return {
-        fileTypes: {
-            js: {
-                file: 'update.html'
-            },
-            css: {
-                file: 'update.html'
+
+module.exports = {
+    extensions: [
+        {
+            id:'bowinst.js',
+            options: {
+                file:'update.html'
+            }
+        },
+        {
+            id:'bowinst.css',
+            options:{
+                file:'update.html'
             }
         }
-    };
+    ]
 };

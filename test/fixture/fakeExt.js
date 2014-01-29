@@ -6,7 +6,7 @@ var _ = require('underscore');
 
 module.exports = {
 
-    install: function(bowerjson,options){
+    install: function(files,bowerjson,options){
 
         var contents = fs.readFileSync(options.file,'utf8');
         contents += '\n<!-- Added by Fake Extension -->';
@@ -14,7 +14,11 @@ module.exports = {
 
     },
 
-    uninstall: function(bowerjson,options){
+    uninstall: function(files, bowerjson,options){
+
+    },
+
+    update: function(addedFiles,removedFiles,oldBowerjson,newBowerjson,options) {
 
     }
 

@@ -8,7 +8,7 @@ var pkg = require('../package.json');
 program.version(pkg.version);
 program.usage('[command]');
 
-var commands = ['install','uninstall','preinstall'];
+var commands = ['init','install','uninstall','preinstall'];
 
 commands.forEach(function(name){
     var cmd = require('../lib/cmd/' + name);
