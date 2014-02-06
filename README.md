@@ -18,11 +18,11 @@ Bowinst is a command-line application to install Bower component references in y
 
 ### Getting Started
 
-To configure `bowinst`, you'll need to modify your Bower config in `.bowerrc` and let Bower know to trigger the `bowinst` command after each Bower install or uninstall.  Additionally, you may need to create a Bowinst's `.bowinst.js` config file if the file name of your primary HTML is not 'index.html'.  If you have an Angular project, you might additionally need to tell Bowinst where you do your Angular module initialization.  Thankfully, `bowinst` includes an `init` command to do this all for you.
+You'll need to configure `bowinst` before you can get started.  Run `bowinst init` in your project directory to configure it to use `bowinst`.  This configuration must be done in every project you wish to use `bowinst` on.
 
 Here's an example of running `bowinst init`:
 
-```bash
+```shell
 $ bowinst init
 Enter the HTML file where <script> and <link> tags should be added (index.html) app/index.html
 If this is an Angular project, enter the JS file where the main Angular module is created. If not,
@@ -31,6 +31,11 @@ just hit Enter. (js/setup.js) app/scripts/app.js
 >> .bowinst.js created
 Good to go!
 ```
+
+`bowinst init` does the following:
+ - Creates/modifies your Bower config in `.bowerrc` so Bower will trigger `bowinst` after each Bower install/uninstall.
+ - Creates/modifies a `.bowinst.js` to tell Bowinst where your main HTML file is and, if you're using Angular, where your Angular module setup code exists.  If your answers are the same as the Bowinst's defaults (`index.html` and `js/setup.js`), then `.bowinst.js` won't be created.
+
 
 Next you'll need to add the comment markers to your HTML file so Bowinst knows where to put your `<script>` and `<link>` tags.  For `<script>` tags, use these surrounding comment markers:
 
@@ -50,7 +55,7 @@ That's it.  Bowinst will now automatically install and uninstall `<script>`, `<l
 
 ### Angular Component Support
 
-When installing a reusable Angular component, if it's `bower.json` includes an `angularModule` property whose value is the name of its declared Angular module then Bowinst will add that for you.  For example, if you were installing an angular component named `reusableAngularComponent`, it would change this:
+When installing a reusable Angular component, if it's `bower.json` includes an `angularModule` property then Bowinst will add that for you.  For example, if you were installing an angular component named `reusableAngularComponent`, it would change this:
 
 ```js
 angular.module('myApp',[]);
