@@ -15,7 +15,7 @@ module.exports = {
         {
             id:'bowinst.angular',
             options: {
-                file: '<%= setupjs %>'
+                file: '<%= appjs %>'
             }
         }
     ]

@@ -1,6 +1,6 @@
 {
   "name": "bowinst",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Automatically install Bower component references into your HTML or Javascript files.",
   "keywords": [
     "bower",

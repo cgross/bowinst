@@ -26,7 +26,7 @@ Here's an example of running `bowinst init`:
 $ bowinst init
 Enter the HTML file where <script> and <link> tags should be added (index.html) app/index.html
 If this is an Angular project, enter the JS file where the main Angular module is created. If not,
-just hit Enter. (js/setup.js) app/scripts/app.js
+just hit Enter. (app.js) app/scripts/app.js
 >> .bowerrc created
 >> .bowinst.js created
 Good to go!
@@ -34,7 +34,7 @@ Good to go!
 
 `bowinst init` does the following:
  - Creates/modifies your Bower config in `.bowerrc` so Bower will trigger `bowinst` after each Bower install/uninstall.
- - Creates/modifies a `.bowinst.js` to tell Bowinst where your main HTML file is and, if you're using Angular, where your Angular module setup code exists.  If your answers are the same as the Bowinst's defaults (`index.html` and `js/setup.js`), then `.bowinst.js` won't be created.
+ - Creates/modifies a `.bowinst.js` to tell Bowinst where your main HTML file is and, if you're using Angular, where your Angular module setup code exists.  If your answers are the same as the Bowinst's defaults (`index.html` and `app.js`), then `.bowinst.js` won't be created.
 
 
 Next you'll need to add the comment markers to your HTML file so Bowinst knows where to put your `<script>` and `<link>` tags.  For `<script>` tags, use these surrounding comment markers:
@@ -58,13 +58,13 @@ That's it.  Bowinst will now automatically install and uninstall `<script>`, `<l
 When installing a reusable Angular component, if it's `bower.json` includes an `angularModule` property then Bowinst will add that for you.  For example, if you were installing an angular component named `reusableAngularComponent`, it would change this:
 
 ```js
-angular.module('myApp',[]);
+angular.module('myApp',['ngRoute']);
 ```
 
 into:
 
 ```js
-angular.module('myApp',['reusableAngularComponent']);
+angular.module('myApp',['ngRoute','reusableAngularComponent']);
 ```
 
 Please help spread the word to Angular component authors.  Let them know to add the `angularModule` property to their `bower.json` files.
@@ -76,5 +76,6 @@ There are many more configuration options as well as the ability for anyone to c
 
 ### Release History
 
+* 3/11/2014 v2.1 - Default location for Angular setup is now in `app.js`.
 * 1/29/2014 v2.0 - Simplification refactoring.
 * 7/23/2013 v1.0 - Initial release.

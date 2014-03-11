@@ -18,8 +18,8 @@ describe('Bowinst',function(){
         fs.writeFileSync('index.html',indexHtml,'utf8');
         fs.writeFileSync('custom.html',indexHtml,'utf8');
 
-        var setupJs = fs.readFileSync('js/_setup.js','utf8');
-        fs.writeFileSync('js/setup.js',setupJs,'utf8');
+        var appJs = fs.readFileSync('_app.js','utf8');
+        fs.writeFileSync('app.js',appJs,'utf8');
 
         if (fs.existsSync('.bowinst.js')) fs.unlinkSync('.bowinst.js');
 
@@ -49,8 +49,8 @@ describe('Bowinst',function(){
                 var expected = fs.readFileSync('../expected/installed.html','utf8');
                 expect(actual).to.eql(expected);
 
-                var actual = fs.readFileSync('js/setup.js','utf8');
-                var expected = fs.readFileSync('../expected/installed_setup.js','utf8');
+                var actual = fs.readFileSync('app.js','utf8');
+                var expected = fs.readFileSync('../expected/installed_app.js','utf8');
 
                 expect(actual).to.eql(expected);
 
@@ -72,8 +72,8 @@ describe('Bowinst',function(){
                 var expected = fs.readFileSync('_index.html','utf8');
                 expect(actual).to.eql(expected);
 
-                var actual = fs.readFileSync('js/setup.js','utf8');
-                var expected = fs.readFileSync('js/_setup.js','utf8');
+                var actual = fs.readFileSync('app.js','utf8');
+                var expected = fs.readFileSync('_app.js','utf8');
                 expect(actual).to.eql(expected);
 
                 next();
@@ -102,8 +102,8 @@ describe('Bowinst',function(){
                 var expected = fs.readFileSync('../expected/updated.html','utf8');
                 expect(actual).to.eql(expected);
 
-                var actual = fs.readFileSync('js/setup.js','utf8');
-                var expected = fs.readFileSync('../expected/updated_setup.js','utf8');
+                var actual = fs.readFileSync('app.js','utf8');
+                var expected = fs.readFileSync('../expected/updated_app.js','utf8');
                 expect(actual).to.eql(expected);
 
                 next();
