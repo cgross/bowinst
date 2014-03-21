@@ -2,7 +2,7 @@
 
 > Automatically install Bower component references into your HTML or Javascript files.
 
-Bowinst is a command-line application to install Bower component references in your source files.  Bowinst was written in anticipation of `post_install` hooks being added directly to Bower [bower#249](https://github.com/bower/bower/issues/249).
+Bowinst is a command-line application to install Bower component references in your source files.  Bowinst only works with Bower 1.3.0 or later.
 
 ### Features
 
